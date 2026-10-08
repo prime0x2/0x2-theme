@@ -1,0 +1,134 @@
+{
+  "name": "0x2-theme",
+  "displayName": "0x2 Theme",
+  "description": "A dark VS Code theme by prime0x2 with 18 dark themes, vivid syntax colors and a bright yellow cursor.",
+  "version": "1.1.0",
+  "publisher": "prime0x2",
+  "author": {
+    "name": "prime0x2",
+    "url": "https://prime0x2.dev/"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://prime0x2.dev/",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#292D3E",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prime0x2/0x2-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prime0x2/0x2-theme/issues"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "dark theme",
+    "high contrast",
+    "color theme",
+    "0x2",
+    "prime0x2"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "0x2 Violet High Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-violet-high-contrast.json"
+      },
+      {
+        "label": "0x2 Violet",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-violet.json"
+      },
+      {
+        "label": "0x2 Slate High Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-slate-high-contrast.json"
+      },
+      {
+        "label": "0x2 Slate",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-slate.json"
+      },
+      {
+        "label": "0x2 Carbon High Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-carbon-high-contrast.json"
+      },
+      {
+        "label": "0x2 Carbon",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-carbon.json"
+      },
+      {
+        "label": "0x2 Midnight High Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-midnight-high-contrast.json"
+      },
+      {
+        "label": "0x2 Midnight",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-midnight.json"
+      },
+      {
+        "label": "0x2 Forest High Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-forest-high-contrast.json"
+      },
+      {
+        "label": "0x2 Forest",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-forest.json"
+      },
+      {
+        "label": "0x2 Graphite High Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-graphite-high-contrast.json"
+      },
+      {
+        "label": "0x2 Graphite",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-graphite.json"
+      },
+      {
+        "label": "0x2 Dune High Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-dune-high-contrast.json"
+      },
+      {
+        "label": "0x2 Dune",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-dune.json"
+      },
+      {
+        "label": "0x2 Ember High Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-ember-high-contrast.json"
+      },
+      {
+        "label": "0x2 Ember",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-ember.json"
+      },
+      {
+        "label": "0x2 Lagoon High Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-lagoon-high-contrast.json"
+      },
+      {
+        "label": "0x2 Lagoon",
+        "uiTheme": "vs-dark",
+        "path": "./themes/0x2-lagoon.json"
+      }
+    ]
+  }
+}
