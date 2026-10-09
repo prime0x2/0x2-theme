@@ -1,0 +1,67 @@
+name: Publish
+
+# Push a version tag (e.g. v1.2.0) matching package.json to publish everywhere.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write # create the GitHub release
+  id-token: write # Open VSX trusted publishing (no token needed)
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Check tag matches package.json version
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if [ "$GITHUB_REF_NAME" != "v$version" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match package.json version $version"
+            exit 1
+          fi
+
+      - name: Package
+        id: package
+        run: |
+          version=$(node -p "require('./package.json').version")
+          npx --yes @vscode/vsce@4.0.0 package --out "0x2-theme-$version.vsix"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "vsix=0x2-theme-$version.vsix" >> "$GITHUB_OUTPUT"
+
+      - name: Publish to Open VSX
+        run: npx --yes ovsx@1.2.0 publish --packagePath "${{ steps.package.outputs.vsix }}" --trusted-publishing --skip-duplicate
+
+      - name: Publish to VS Marketplace
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: |
+          if [ -z "$VSCE_PAT" ]; then
+            echo "::warning::VSCE_PAT secret is not set, skipping the VS Marketplace. Upload the .vsix from the GitHub release instead."
+            exit 0
+          fi
+          npx --yes @vscode/vsce@4.0.0 publish --packagePath "${{ steps.package.outputs.vsix }}" --skip-duplicate
+
+      - name: Create GitHub release
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$GITHUB_REF_NAME" > /dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" "${{ steps.package.outputs.vsix }}" --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" "${{ steps.package.outputs.vsix }}" \
+              --title "0x2 Theme ${{ steps.package.outputs.version }}" --generate-notes
+          fi
