@@ -1,5 +1,9 @@
 # 0x2 Theme
 
+[![VS Marketplace](https://img.shields.io/badge/VS%20Marketplace-0x2%20Theme-80CBC4?labelColor=292D3E)](https://marketplace.visualstudio.com/items?itemName=prime0x2.0x2-theme)
+[![GitHub release](https://img.shields.io/github/v/release/prime0x2/0x2-theme?label=release&color=80CBC4&labelColor=292D3E)](https://github.com/prime0x2/0x2-theme/releases/latest)
+[![License](https://img.shields.io/github/license/prime0x2/0x2-theme?color=80CBC4&labelColor=292D3E)](LICENSE)
+
 ![0x2 Theme by prime0x2](images/cover.webp)
 
 A dark VS Code theme with vivid syntax colors, a high-contrast UI and a bright yellow cursor you'll never lose.
